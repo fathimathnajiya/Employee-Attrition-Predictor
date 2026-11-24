@@ -8,7 +8,7 @@ from sklearn.metrics import (accuracy_score, confusion_matrix, f1_score,
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
-st.set_page_config(page_title="Employee Attrition Predictor", page_icon="👥", layout="wide")
+st.set_page_config(page_title="Employee Attrition Predictor", layout="wide")
 
 # ---- look and feel (works in light and dark mode) ----
 st.markdown("""
