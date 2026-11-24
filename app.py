@@ -140,12 +140,11 @@ def risk_band(p):
 # ----------------------------------------------------------------------------
 st.markdown("""
 <div class="hero">
-  <h1>👥 Employee Attrition Predictor with Segments</h1>
-  <p>Predict who may leave, understand what type of employee they are, and decide what HR should do.</p>
+  <h1> Employee Attrition Predictor with Segments</h1>
 </div>
 """, unsafe_allow_html=True)
 
-tab1, tab2, tab3 = st.tabs(["🔮 Predict an employee", "🧩 Segments", "📊 Model performance"])
+tab1, tab2, tab3 = st.tabs(["Predict an employee", "Segments", "Model performance"])
 
 # ---------------------------------------------------------------- TAB 1
 with tab1:
@@ -281,5 +280,3 @@ with tab3:
                      f'<b>{cm[r, c]}</b><small>{share:.0%} of row<br>{notes[c]}</small></td>')
         html += '</tr>'
     st.markdown(html + '</table>', unsafe_allow_html=True)
-    st.caption("Each row adds up to 100%. Green cells are correct predictions, red cells are mistakes. "
-               "The darker the cell, the larger its share of that row.")
