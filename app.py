@@ -145,7 +145,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-tab1, tab2, tab3, tab4 = st.tabs(["🔮 Predict an employee", "🧩 Segments", "📋 HR watch list", "📊 Model performance"])
+tab1, tab2, tab3 = st.tabs(["🔮 Predict an employee", "🧩 Segments", "📊 Model performance"])
 
 # ---------------------------------------------------------------- TAB 1
 with tab1:
@@ -256,19 +256,6 @@ with tab2:
 
 # ---------------------------------------------------------------- TAB 3
 with tab3:
-    st.subheader("HR watch list: highest-risk employees still working")
-    n = st.slider("How many employees to show", 5, 50, 10)
-    seg_filter = st.multiselect("Filter by segment", order, default=order)
-    still = df1[(df1["Attrition"] == 0) & (df1["SegmentName"].isin(seg_filter))]
-    watch = still.sort_values("RiskScore", ascending=False).head(n)[
-        ["Age", "JobRole", "Department", "MonthlyIncome", "OverTime", "YearsAtCompany",
-         "SegmentName", "RiskScore"]].round(2)
-    st.dataframe(watch, hide_index=True, column_config={
-        "RiskScore": st.column_config.ProgressColumn("Risk score", min_value=0, max_value=1, format="%.2f"),
-        "MonthlyIncome": st.column_config.NumberColumn("Income", format="%d")})
-
-# ---------------------------------------------------------------- TAB 4
-with tab4:
     st.subheader("Model performance (test set, 441 employees)")
     mm = A["metrics"]
     k1, k2, k3, k4, k5 = st.columns(5)
